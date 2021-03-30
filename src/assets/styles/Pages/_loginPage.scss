@@ -1,0 +1,74 @@
+.login, .signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: $blue-black;
+    color: $text-color;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28%;
+    background-color: $white-color;
+    padding: 1rem 3rem;
+    border-top: solid 3px $yellow-color;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.logo img {
+    width: 200px;
+}
+
+.form {
+    width: 28%;
+    background-color: $white-color;
+    padding: .5rem 2rem;
+    border: 1px solid #e6e6e6;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+button.btn.btn-primary.btn-lg.btn-block {
+    background-color: $yellow-color;
+    border: none;
+}
+input {
+    padding: 8px;
+    border-radius: 5px;
+}
+
+button {
+    margin: 15px 0;
+}
+
+.form-group small {
+    margin-top: 0.2rem;
+}
+
+.form-link {
+    margin: 15px 0;
+}
+
+
+@media only screen and (max-width: 860px) {
+    .form, .logo {
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .form, .logo {
+        width: 90%;
+    }
+}
