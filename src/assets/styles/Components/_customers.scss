@@ -1,0 +1,197 @@
+.customers {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.customers-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-column-gap: 1.5rem;
+}
+
+.customers-card{
+    background: none;
+    border-radius: 7px;
+}
+
+.customers-card h3 {
+    color: $text-color;
+    margin: 1rem;
+    font-weight: 100;
+}
+
+/* Search */
+.search-customer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    margin-bottom: .5rem;
+}
+.notfound {
+    text-align: center;
+    color: rgb(165, 11, 11);
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-customers{
+    width: 50%;
+}
+
+.search-wrapper {
+    width: 50%;
+}
+
+.search-wrapper form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-wrapper button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    margin: initial;
+}
+
+.search-wrapper > .search-input {
+    width: 280px;
+}
+
+.search-input {
+    background: none;
+    outline: none;
+    font-size: .9rem;
+    padding-left: 30px;
+    height: 40px;
+    border-radius: 50px;
+    box-shadow: 2px 2px 10px rgba(86, 108, 214, .15);
+    width: 340px;
+}
+
+.search-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    height: 40px;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: $main-color;
+}
+
+.search-button img {
+    width: 24px;
+}
+
+
+.customers-card table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: $white-color;
+    border-radius: 5px;
+}
+
+.customers-card thead {  
+    text-align: left;
+    color: $text-color;
+    border-bottom: 1px solid rgb(236, 236, 236);
+    font-size: .85rem;
+
+}
+
+th, td {
+    padding: 1rem 1rem;
+}
+
+td {
+    font-size: .9rem;
+    color: $text-color;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tbody tr:hover {
+    background-color: #E5E5F1;
+    transition: 100ms;
+}
+
+
+/* To modify colors rows 
+tbody tr:nth-child(even) {
+    background: none;
+}
+*/
+
+.badge {
+    width: 75px;
+    padding: .2rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: .7rem;
+}
+
+.badge.hight {
+    background: #2bc1552e;
+    color: #2BC155;
+}
+
+.badge.hight-outline {
+    border: 1px solid #2BC155;
+    color: #2BC155;
+}
+
+.badge.medium-outline {
+    border: 1px solid orange;
+    color: orange;
+}
+
+.badge.medium {
+    background: #2bc1552e;
+    color: #2BC155;
+}
+
+.badge.low {
+    background: rgba(250, 106, 106, 0.18);
+    color: #F46A6A;
+}
+
+.badge.low-outline {
+    border: 1px solid #F46A6A;
+    color: #F46A6A;
+}
+
+
+/*
+    End customers table
+*/
+
+
+@media only screen and (max-width: 500px) {
+    .search-container {
+        flex-direction: column;
+        margin-bottom: 20px;
+        justify-content: initial;
+        align-items: initial;
+    }
+
+    .search-wrapper {
+        width: 100%;
+
+    }
+
+    .table-responsive {
+        margin-top: 40px;
+    }
+
+    main {
+        padding: 10px;
+    }
+}

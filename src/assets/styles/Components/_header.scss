@@ -1,0 +1,57 @@
+header {
+    position: fixed;
+    left: 240px;
+    top: 0;
+    z-index: 100;
+    width: calc(100% - 240px);
+    background-color: $light-main-color;
+    height: 8%;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.1);
+    transition: left 500ms;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav li a{
+    padding-right: 2rem;
+    color: $text-color;
+}
+
+nav a:hover {
+    text-decoration: none;
+    color: $yellow-color;
+}
+
+
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    color: var(--text-white);
+}
+
+.social-icons span,
+.social-icons div {
+    margin-left: 1.2rem;
+}
+
+.social-icons div {
+    height: 38px;
+    width: 38px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../images/gaddiel.jpg);
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 1200px) {
+    header {
+        height: 60px;
+    } 
+}
