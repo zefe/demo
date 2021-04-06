@@ -1,5 +1,9 @@
 export const types = {
 
+    customerListLoading: '[customer] Customer List Loading',
+    customerListSuccess: '[customer] Customer List Seccess',
+    customerListFail: '[customer] Customer List Fail',
+
     uiOpenToggle: '[ui] Open toggle',
     uiCloseToggle: '[ui Close toggle',
 

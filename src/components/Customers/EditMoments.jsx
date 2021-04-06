@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { uiCloseToggle } from '../../stateManagement/actions/uiActions';
 
@@ -64,7 +64,7 @@ export const EditMoments = () => {
 
         <div className="toggle__main">
             <div className="toggle__header">
-                <h5 class="modal-title">Edit Life Moments</h5>
+                <h5 className="modal-title">Edit Life Moments</h5>
                 <button type="button" className="close"  aria-label="Close" onClick={ closeToggle }>
                     <span className="ti-close"></span>
                 </button>

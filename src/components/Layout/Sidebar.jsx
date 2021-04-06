@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { startLogout } from '../../stateManagement/actions/authActions';
 
@@ -7,6 +7,7 @@ import Logo from '../../assets/images/Alephsoft.png';
 import IconCustomers from '../../assets/icons/Customers.svg';
 import IconMenu from '../../assets/icons/Menu.svg';
 import IconLogOut  from '../../assets/icons/Logout.svg';
+import { Link } from 'react-router-dom';
 
 export const Sidebar = () => {
 
@@ -29,26 +30,26 @@ export const Sidebar = () => {
             <div className="sidebar-menu">
                 <ul >
                     <li>
-                        <a href="" >
+                        <Link to="/" >
                             <span className="ti-layout-grid2"></span>
                             <span>Dashboard</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
                 <ul className="active">
                     <li>
-                        <a href="">
+                        <Link to="/">
                             <img src={ IconCustomers } alt="customers icon" />
                             <span>Customers</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
             <div className="sidebar-footer">
-                <a onClick={ handleLogout }>
+                <Link to="/login" onClick={ handleLogout }>
                     <img src={ IconLogOut } alt="log out" />
                     <span>Log out</span>
-                </a>
+                </Link>
             </div>   
         </div>
     )

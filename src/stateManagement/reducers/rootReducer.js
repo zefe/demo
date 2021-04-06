@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
 import { authReducer } from "./authReducer";
+import { customerListReducer } from "./customerListReducer";
 import { uiReducer } from "./uiReducer";
 
 
@@ -9,4 +10,5 @@ import { uiReducer } from "./uiReducer";
 export const rootReducer = combineReducers({
     ui: uiReducer,
     auth: authReducer,
+    customerList: customerListReducer
 })

@@ -5,10 +5,12 @@
     height: auto;
     background-color:#fff;
     box-shadow: 0 0 1px #a7a7a7;
-    border: 1px solid rgba(92, 92, 92, 0.2);
+    //border: 1px solid rgba(92, 92, 92, 0.2);
     padding: 8px;
     z-index: 150;
     border-radius: 5px;
+    box-shadow: 2px 2px 18px rgba(86, 108, 214, .50);
+    animation: moveUp 1s;
 }
 
 
@@ -30,14 +32,13 @@
 
     .btn-primary-custom {
         width: 120px;
-        background-color: $yellow-color;
+        background-color: #fd9c00;
         border: none;
-        color: $blue-black;
+        color: $white-color;
         margin-right: 10px;
         &:hover{
-            background-color: $white-color;
-            color: $yellow-color;
-            border: 1px solid $yellow-color;
+            background-color: #bd7503;
+            color: $white-color;
 
         }
     }
@@ -62,5 +63,11 @@
         right: 1px;
         width: 100%;
         margin-top: -34px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .btn-primary-custom {
+        font-size: 14px;
     }
 }

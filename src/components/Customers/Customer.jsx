@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
@@ -15,16 +15,30 @@ import iconEducation  from '../../assets/icons/moments/education.svg';
 import iconKids  from '../../assets/icons/moments/kids.svg';
 import iconHeart  from '../../assets/icons/moments/heart.svg';
 import { EditMoments } from './EditMoments';
+import { PaymentsChart } from './PaymentsChart';
+import { Progress } from '../Common/Progress';
+import { Rating } from '../Common/Rating';
+import { Switch } from '../Common/Switch';
+import { EmogiNeutralFace } from '../Common/EmogiNeutralFace';
+import { EmogiSmileFace } from '../Common/EmogiSmileFace';
+import { EmogiSadFace } from '../Common/EmogiSadFace';
 
 export const Customer = () => {
     
     const { toggleOpen } = useSelector(state => state.ui);
+    
+    const [ accepted,  setAccepted ] = useState(false);
     
     const dispatch = useDispatch();
 
     const openToggle = () => {
         dispatch( uiOpenToggle() );
     }
+
+    const [ratingFace, setRatingFace] = useState('')
+    const [smileFace, setSmileFace] = useState(false);
+    const [neutralFace, setNeutralFace] = useState(false);
+    const [sadFace, setSadFace] = useState(false)
 
     return (
         <section className="customer">
@@ -41,7 +55,7 @@ export const Customer = () => {
                     <div className="moments-card-header">
                         <h3>Life Moments</h3>
                         <button className="btn btn-primary-custom" onClick={ openToggle }>
-                            <span className="ti-pencil"></span>
+                            <span className="ti-pencil-alt"></span>
                         </button>
                     </div>
                     <div className="moments">
@@ -135,7 +149,7 @@ export const Customer = () => {
                         <h3>Data History</h3>
                     </div>
                     <div className="history-card-data">
-                        <div className="row-card">   
+                        <div className="history-row-card">   
                             <h5>Date</h5>
                             <small>23/02/2020</small>
                             <h5>Offer</h5>
@@ -143,14 +157,14 @@ export const Customer = () => {
                             <h5>Reason</h5>
                             <small>Cancel</small>
                             <h5>Accepted</h5>
-                            <small>swithc</small>
+                            <Switch onChange={(event) => setAccepted(event.target.checked)} />
                         </div>
                     </div>
 
                 </div>
-                <div className="products-card">
+                <div className="payments-card">
                     <div className="card-title">
-                        <h3>Products</h3>
+                        <h3>Payments</h3>
                     </div>
                     <div className="products-card-data">
                         <div className="product">
@@ -202,16 +216,115 @@ export const Customer = () => {
                             </div>                            
                         </div>
                     </div>
-
-                    
                 </div>
-                <div className="product-recomm-card">
+                <div className="cross-sell-card">
                     <div className="card-title">
                         <h3>Cross-Sell</h3>
+                    </div>
+                    <div className="cross-sell-content">
+                        <div className="progress-container">
+                            <h5>Product 10</h5>
+                            <Progress done="70" />
+
+                            <h5>Product 7</h5>
+                            <Progress done="36" />
+
+                            <h5>Product 20</h5>
+                            <Progress done="25" />
+                        </div>
                     </div>
                     
                 </div>
             </div>
+            {/* products */}
+            <div className="products">
+                <div className="products-card">
+                    <div className="card-title">
+                        <h3>Products</h3>
+                    </div>                    
+                    <div className="payments-card-data">
+                        <PaymentsChart />
+                    </div>
+                                        
+                </div>
+                <div className="feedback-card">
+                    <div className="card-title">
+                        <h3>Customer Feedback</h3>
+                    </div>
+                    <div className="feedback-card-data">
+
+                        <div className="satisfaction">
+                            <div>
+                                <h5>Offer Accepted</h5>
+                                <Switch onChange={(event) => setAccepted(event.target.checked)} />
+                            </div>
+                            <div>
+                                <h5>Satisfaction</h5>
+                                <div className="emogis"> 
+                                    <EmogiSadFace
+                                        onClick={() =>
+                                            {
+                                                setSadFace(!sadFace)
+                                                setRatingFace(sadFace ? '' : 'sad')
+                                                setNeutralFace(false)
+                                                setSmileFace(false)
+                                            }
+                                        }
+                                        sadFace={ sadFace }
+                                    />
+
+                                    <EmogiNeutralFace 
+                                        onClick={() =>
+                                            {
+                                                setNeutralFace(!neutralFace)
+                                                setRatingFace(neutralFace ? '' : 'neutral')
+                                                setSadFace(false)
+                                                setSmileFace(false)
+                                            }
+                                        }
+                                        neutralFace={ neutralFace }
+                                    />
+
+                                    <EmogiSmileFace 
+                                        onClick={() =>
+                                            {
+                                                setSmileFace(!smileFace)
+                                                setRatingFace(smileFace ? '' : 'smile')
+                                                setSadFace(false)
+                                                setNeutralFace(false)
+                                            }
+                                        }
+                                        smileFace={ smileFace }
+                                    />
+
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div className="rating-container">
+                            <p>How likely would you recommend our company?</p>
+                            <div className="raiting-stars">
+                                <Rating />
+                            </div>
+                        </div>
+                        
+                        <div className="comments">
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Comments</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <button type="submit" className="btn btn-primary-custom" data-dismiss="modal"><span className="ti-save"></span> Save</button>
+                        
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+            
+
         
 
         </section>

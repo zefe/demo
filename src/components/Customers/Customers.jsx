@@ -1,73 +1,93 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import queryString from 'query-string';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import ReactPaginate from 'react-paginate';
 
 import { useForm } from '../../Hooks/useForm';
 import searchIcon from '../../assets/icons/Search.svg';
+import { getCustomerList } from '../../stateManagement/actions/customerActions';
+import { CustomerRow } from './CustomerRow';
+
 
 export const Customers = () => {
 
+    const dispatch = useDispatch();
+
+    const history = useHistory();
+    const location = useLocation();
+    const { q='' } = queryString.parse( location.search );
+
     const [ formValues, handleInputChange ] = useForm({
-        searchText: ''
+        searchText: q
     });
 
     const { searchText } = formValues;
 
+    const { data: customerList, customersPerPage, totalCustomers, errorMessage } = useSelector(state => state.customerList);
+    
+    useEffect(() => {
+        FetchData(1);
+    }, []);
+
+    const FetchData = (currentPage=1) => {
+        dispatch( getCustomerList(currentPage) );
+    };
+
+
+    const getCustomerById = (customerId='') => {
+        if(customerId === ''){
+            return [];
+        }
+
+        customerId.toLocaleLowerCase();
+        return customerList.filter( customer => customer.retention_score.toLocaleLowerCase().includes( customerId) ||
+        customer.id.toString().includes(customerId) );
+    };
+
+    const customerFiltered = getCustomerById( searchText.toLocaleLowerCase() );
+
     const handleSearch = (e) => {
         e.preventDefault();
-        //history.push(`?q=${searchText}`);
-        console.log("Searching...")
-    }
+        history.push(`?q=${searchText}`);
+    };
 
-    const customerList = [
-        {
-            id: 1,
-            product: "Product",
-            type_product: "Type Product",
-            retention_score: "hight",
-            recommendations: "Recommendations",
-            action: "Hold"
-        },
-        {
-            id: 2,
-            product: "Product",
-            type_product: "Type Product",
-            retention_score: "hight",
-            recommendations: "Recommendations",
-            action: "Hold"
-        },
-        {
-            id: 3,
-            product: "Product",
-            type_product: "Type Product",
-            retention_score: "medium",
-            recommendations: "Recommendations",
-            action: "Hold"
-        },
-        {
-            id: 4,
-            product: "Product",
-            type_product: "Type Product",
-            retention_score: "hight",
-            recommendations: "Recommendations",
-            action: "Hold"
-        },
-        {
-            id: 5,
-            product: "Product",
-            type_product: "Type Product",
-            retention_score: "low",
-            recommendations: "Recommendations",
-            action: "Let go"
-        },
-        {
-            id: 6,
-            product: "Product",
-            type_product: "Type Product",
-            retention_score: "hight",
-            recommendations: "Recommendations",
-            action: "Hold"
+    const handleRowClick = (customerId) => {
+        history.push(`/customer/${ customerId }`)
+    };
+
+
+    const showData = () => {
+ 
+        if(customerFiltered.length !== 0){
+
+            return  customerFiltered.map( customer => (
+                <CustomerRow
+                    key={ customer.id }
+                    customer={ customer }
+                    handleRowClick ={ handleRowClick }
+                />
+            ));
+
         }
-    ]
+
+        if(customerList.length !== 0){
+
+            return  customerList.map( customer => (
+                <CustomerRow
+                    key={ customer.id }
+                    customer={ customer }
+                    handleRowClick ={ handleRowClick}
+                />
+            ));
+        }
+
+        if(errorMessage !== "") {
+            return <p>{errorMessage}</p>
+        }
+
+    };
+
 
     return (
         <div>
@@ -114,31 +134,7 @@ export const Customers = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        customerList.map( customer => {
-                                            return(
-                                                <tr key={ customer.id }>
-                                                    <td>{ customer.id }</td>
-                                                    <td>{ customer.product }</td>
-                                                    <td>{ customer.type_product }</td>
-                                                    <td>
-                                                        <span className={`badge ${customer.retention_score}-outline`}>
-                                                            { customer.retention_score }
-                                                        </span>
-                                                    </td>
-                                                    <td>{ customer.recommendations }</td>
-                                                    <td>
-                                                        <span className={`badge ${customer.retention_score }`}>
-                                                            { customer.action}
-                                                        </span>
-                                                    </td>
-                                                    <td>
-                                                        <Link to={ `/customer/${ customer.id }` } >
-                                                            view
-                                                        </Link>
-                                                    </td>
-                                                </tr>
-                                            )
-                                        })
+                                        showData()
                                     }
                                     
                                 </tbody>
@@ -147,6 +143,22 @@ export const Customers = () => {
                         </div>
                         
                     </div>
+
+                </div>
+                
+                <div className="pagination-content">
+                    <ReactPaginate 
+                        pageCount={ Math.ceil(totalCustomers / customersPerPage)}
+                        pageRangeDisplayed={ 2 }
+                        marginPagesDisplayed={ 1 }
+                        onPageChange={ (data) => FetchData(data.selected + 1)}
+                        containerClassName={"pagination"}
+                        pageLinkClassName={"pagination-link"}
+                        activeClassName={"pagination-active-link"}
+                        nextClassName={"pagination-next-link"}
+                        previousClassName={"pagination-previous-link"}
+                    />
+
 
                 </div>
             </section>

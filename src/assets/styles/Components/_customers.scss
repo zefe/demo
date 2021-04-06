@@ -1,6 +1,7 @@
 .customers {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    animation: moveUp 2s;
 }
 
 .customers-grid {
@@ -115,12 +116,14 @@ th, td {
 td {
     font-size: .9rem;
     color: $text-color;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgb(236, 236, 236);
 }
 
 tbody tr:hover {
-    background-color: #E5E5F1;
     transition: 100ms;
+    cursor: pointer;
+    
+    box-shadow: 2px 2px 10px rgba(86, 108, 214, .3);
 }
 
 
@@ -174,6 +177,66 @@ tbody tr:nth-child(even) {
 */
 
 
+.pagination-content {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    list-style: none;
+    color: $text-color;
+}
+
+.pagination-link {
+    width: 40px;
+}
+
+.pagination-link:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.pagination-active-link a{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $yellow-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-weight: 600;
+    
+}
+
+.pagination-active-link a:hover {
+}
+
+.pagination-next-link, .pagination-previous-link{
+    width: 40px;
+    height: 40px;
+}
+
+.pagination-next-link:hover, .pagination-previous-link:hover {
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .pagination-content {
+        justify-content: center;
+    }
+    .pagination {
+        width: 80%;
+    }
+
+}
+
 @media only screen and (max-width: 500px) {
     .search-container {
         flex-direction: column;
@@ -193,5 +256,13 @@ tbody tr:nth-child(even) {
 
     main {
         padding: 10px;
+    }
+    
+    .pagination-content {
+        width: 100%;
+    }
+    .pagination {
+        width: 100%;
+        font-size: 14px;
     }
 }

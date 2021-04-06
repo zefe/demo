@@ -1,26 +1,35 @@
 {
   "files": {
-    "main.css": "/static/css/main.23c6a3d2.chunk.css",
-    "main.js": "/static/js/main.4aee54d4.chunk.js",
-    "main.js.map": "/static/js/main.4aee54d4.chunk.js.map",
+    "main.css": "/static/css/main.123f70fc.chunk.css",
+    "main.js": "/static/js/main.c052e2e1.chunk.js",
+    "main.js.map": "/static/js/main.c052e2e1.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.89db94ab.js",
     "runtime-main.js.map": "/static/js/runtime-main.89db94ab.js.map",
-    "static/js/2.572c3a43.chunk.js": "/static/js/2.572c3a43.chunk.js",
-    "static/js/2.572c3a43.chunk.js.map": "/static/js/2.572c3a43.chunk.js.map",
+    "static/js/2.f87ecf0d.chunk.js": "/static/js/2.f87ecf0d.chunk.js",
+    "static/js/2.f87ecf0d.chunk.js.map": "/static/js/2.f87ecf0d.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.23c6a3d2.chunk.css.map": "/static/css/main.23c6a3d2.chunk.css.map",
-    "static/js/2.572c3a43.chunk.js.LICENSE.txt": "/static/js/2.572c3a43.chunk.js.LICENSE.txt",
-    "static/media/Customers.d63702ce.svg": "/static/media/Customers.d63702ce.svg",
-    "static/media/Logout.ea59d531.svg": "/static/media/Logout.ea59d531.svg",
+    "static/css/main.123f70fc.chunk.css.map": "/static/css/main.123f70fc.chunk.css.map",
+    "static/js/2.f87ecf0d.chunk.js.LICENSE.txt": "/static/js/2.f87ecf0d.chunk.js.LICENSE.txt",
+    "static/media/Customers.ce594fc7.svg": "/static/media/Customers.ce594fc7.svg",
+    "static/media/Logout.a199676f.svg": "/static/media/Logout.a199676f.svg",
     "static/media/Menu.f79b761a.svg": "/static/media/Menu.f79b761a.svg",
     "static/media/Search.f11ec5f8.svg": "/static/media/Search.f11ec5f8.svg",
+    "static/media/age.058df806.svg": "/static/media/age.058df806.svg",
+    "static/media/birthday.c54ab22a.svg": "/static/media/birthday.c54ab22a.svg",
+    "static/media/city.a38613d5.svg": "/static/media/city.a38613d5.svg",
+    "static/media/education.8badd652.svg": "/static/media/education.8badd652.svg",
     "static/media/styles.scss": "/static/media/gaddiel.12bf181b.jpg",
-    "static/media/person.19892ad8.png": "/static/media/person.19892ad8.png"
+    "static/media/gender.91c59a82.svg": "/static/media/gender.91c59a82.svg",
+    "static/media/heart.6f24bc14.svg": "/static/media/heart.6f24bc14.svg",
+    "static/media/kids.88e17d84.svg": "/static/media/kids.88e17d84.svg",
+    "static/media/person.19892ad8.png": "/static/media/person.19892ad8.png",
+    "static/media/profession.a4eb8578.svg": "/static/media/profession.a4eb8578.svg",
+    "static/media/state.10feee49.svg": "/static/media/state.10feee49.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.89db94ab.js",
-    "static/js/2.572c3a43.chunk.js",
-    "static/css/main.23c6a3d2.chunk.css",
-    "static/js/main.4aee54d4.chunk.js"
+    "static/js/2.f87ecf0d.chunk.js",
+    "static/css/main.123f70fc.chunk.css",
+    "static/js/main.c052e2e1.chunk.js"
   ]
 }
