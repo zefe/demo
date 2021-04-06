@@ -8,17 +8,17 @@ export const CustomerRow = ( props ) => {
         <>
             <tr key={ customer.id } onClick={() => handleRowClick(customer.id)} >
                 <td>{ customer.id }</td>
-                <td>{ customer.product }</td>
-                <td>{ customer.type_product }</td>
+                <td>{ customer.producName }</td>
+                <td>{ customer.productType }</td>
                 <td>
-                    <span className={`badge ${customer.retention_score}-outline`}>
-                        { customer.retention_score }
+                    <span className={`badge ${customer.retentionScore}-outline`}>
+                        { customer.retentionScore }
                     </span>
                 </td>
-                <td>{ customer.recommendations }</td>
+                <td>{ customer.recomendations }</td>
                 <td>
-                    <span className={`badge ${customer.retention_score }`}>
-                        { customer.action}
+                    <span className={`badge ${customer.retentionScore }`}>
+                        { customer.actions}
                     </span>
                 </td>
             </tr>

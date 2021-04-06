@@ -15,8 +15,8 @@ export const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) =>
       onClick={onClick}
     >
       <svg
-        height="43px"
-        width="40px"
+        height="40px"
+        width="37px"
         className={styleClass}
         viewBox="0 0 25 23"
         data-rating="1"

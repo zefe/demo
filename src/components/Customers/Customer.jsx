@@ -42,6 +42,10 @@ export const Customer = () => {
 
     return (
         <section className="customer">
+            
+            <div className="title-customers-deatils" >
+                <h3>Customer Details</h3>
+            </div>
         { 
             toggleOpen && <EditMoments />
         }
@@ -164,7 +168,7 @@ export const Customer = () => {
                 </div>
                 <div className="payments-card">
                     <div className="card-title">
-                        <h3>Payments</h3>
+                        <h3>Products</h3>
                     </div>
                     <div className="products-card-data">
                         <div className="product">
@@ -240,7 +244,7 @@ export const Customer = () => {
             <div className="products">
                 <div className="products-card">
                     <div className="card-title">
-                        <h3>Products</h3>
+                        <h3>Payments</h3>
                     </div>                    
                     <div className="payments-card-data">
                         <PaymentsChart />

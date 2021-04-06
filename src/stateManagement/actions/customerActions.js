@@ -9,7 +9,7 @@ export const getCustomerList = ( currentPage ) => {
                 type: types.customerListLoading
             });
 
-            const customersPerPage = 10;
+            const customersPerPage = 20;
             const totalCustomers = customerList.length;
 
             const indexOfLastCustomer = currentPage * customersPerPage;

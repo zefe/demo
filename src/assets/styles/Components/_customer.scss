@@ -5,6 +5,13 @@
     animation: moveRight 2s;
 }
 
+.title-customers-deatils h3 {
+    font-size: 28px;
+    font-weight: 100;
+    padding-bottom: 1rem;
+    margin-top: -10px;
+}
+
 .customer-grid {
     display: grid;
     grid-template-columns: 16% 83%;
@@ -167,6 +174,10 @@
     display: flex;
     justify-content: space-between;
     padding: 20px 20px;
+
+    h5 {
+        font-size: 14px;
+    }
 }
 
 .emogis {
@@ -177,9 +188,16 @@
     margin: 0 5px;
 }
 
+.emogis div:hover {
+    cursor: pointer;
+}
+
 
 .rating-container {
     padding: 20px 20px;
+    p {
+        font-size: 14px;
+    }
 }
 
 .raiting-stars {
@@ -189,6 +207,9 @@
 
 .comments {
     padding: 20px 20px;
+    label {
+        font-size: 14px;
+    }
 }
 
 

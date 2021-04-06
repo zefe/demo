@@ -41,7 +41,7 @@ export const Customers = () => {
         }
 
         customerId.toLocaleLowerCase();
-        return customerList.filter( customer => customer.retention_score.toLocaleLowerCase().includes( customerId) ||
+        return customerList.filter( customer => customer.retentionScore.toLocaleLowerCase().includes( customerId) ||
         customer.id.toString().includes(customerId) );
     };
 
