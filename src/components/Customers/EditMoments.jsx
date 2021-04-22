@@ -3,39 +3,31 @@ import { useDispatch } from 'react-redux';
 
 import { uiCloseToggle } from '../../stateManagement/actions/uiActions';
 
-const initMoments = {
-    maritalStatus: 'Married',
-    kids: '2',
-    education: 'Bachelors degree',
-    profession: 'Teacher',
-    gender: 'F',
-    age: '45',
-    birthday: '10/05/1980',
-    city: 'LA',
-    state: 'California'
-}
 
-const options = [
-    {
-        id: 1,
-        label: "Female",
-        value: "F",
-    },
-    {
-        id: 2,
-        label: "Male",
-        value: 'M',
-    }
-];
-
-export const EditMoments = () => {
+export const EditMoments = ({ customer, setCustomerActive }) => {
 
     const dispatch = useDispatch();
+    
+    const initMoments = customer;
+    const options = [
+        {
+            id: 1,
+            label: "Female",
+            value: "F",
+        },
+        {
+            id: 2,
+            label: "Male",
+            value: 'M',
+        }
+    ];
+    
 
     
     const [formValues, setFormValues] = useState( initMoments );
 
-    const { maritalStatus, kids, education, profession, gender, age, birthday, city, state } = formValues;
+    //*Education birthDate
+    const { maritalStatus, kids, profession, gender, education, age, city, state } = formValues;
 
     const handleInputChange = ({ target }) => {
 
@@ -49,8 +41,7 @@ export const EditMoments = () => {
     const handleSubmitFormEdit = (e) => {
         e.preventDefault();
         //Update moments
-        console.log('start updating moments')
-        console.log(formValues)
+        setCustomerActive(formValues)
         closeToggle();
     }
 
@@ -134,7 +125,7 @@ export const EditMoments = () => {
                                 name="gender"
                                 >
                                 {options.map((option) => (
-                                    <option key={option.id} value={option.value}>{option.label}</option>
+                                    <option key={option.id} value={customer.gender}>{option.label}</option>
                                 ))}
 
                             </select>
@@ -157,7 +148,7 @@ export const EditMoments = () => {
                                 className="form-control"
                                 id="birthday"
                                 name="birthday"
-                                value={ birthday }
+                                //value={ birthday }
                                 onChange={ handleInputChange }
                             />
                         </div>

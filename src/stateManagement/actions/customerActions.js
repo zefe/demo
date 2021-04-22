@@ -1,5 +1,5 @@
 import { types } from '../types/types';
-import { customerList } from '../../helpers/dataCustomers';
+import { customerList } from '../../data/dataCustomers';
 
 export const getCustomerList = ( currentPage ) => {
     return async(dispatch) => {
@@ -9,7 +9,7 @@ export const getCustomerList = ( currentPage ) => {
                 type: types.customerListLoading
             });
 
-            const customersPerPage = 20;
+            const customersPerPage = 15;
             const totalCustomers = customerList.length;
 
             const indexOfLastCustomer = currentPage * customersPerPage;

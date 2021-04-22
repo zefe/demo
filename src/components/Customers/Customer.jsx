@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { Redirect, useParams } from 'react-router';
 
 import { uiOpenToggle } from '../../stateManagement/actions/uiActions';
 
@@ -22,12 +23,23 @@ import { Switch } from '../Common/Switch';
 import { EmogiNeutralFace } from '../Common/EmogiNeutralFace';
 import { EmogiSmileFace } from '../Common/EmogiSmileFace';
 import { EmogiSadFace } from '../Common/EmogiSadFace';
+import { getCustomerById } from '../../helpers/getCustomerById';
+import { DateHistory } from '../../helpers/getDateHistory';
+
+
 
 export const Customer = () => {
+
+    const { customerId } = useParams();
+
+    const customer = getCustomerById( customerId);
+
+    const [customerActive, setCustomerActive]  = useState( customer );
+
     
     const { toggleOpen } = useSelector(state => state.ui);
     
-    const [ accepted,  setAccepted ] = useState(false);
+    const [ accepted,  setAccepted ] = useState(true);
     
     const dispatch = useDispatch();
 
@@ -40,6 +52,9 @@ export const Customer = () => {
     const [neutralFace, setNeutralFace] = useState(false);
     const [sadFace, setSadFace] = useState(false)
 
+    const currentlyDate = new Date();
+    const dateHistory = DateHistory(currentlyDate, 'dd/mm/yy');
+
     return (
         <section className="customer">
             
@@ -47,13 +62,21 @@ export const Customer = () => {
                 <h3>Customer Details</h3>
             </div>
         { 
-            toggleOpen && <EditMoments />
+            toggleOpen && <EditMoments customer={ customer } setCustomerActive={setCustomerActive} />
         }
             <div className="customer-grid">
                 <div className="customer-card">
                     <img src={ person } alt="Customer avatar" />
-                    <p><strong> ID </strong> 84HD056</p>
-                    <p><strong> CLV </strong>$521, 728</p>
+                    <div className="customer-information">                
+                        <p><strong> Id </strong> { customerActive.id }</p>
+                        <p><strong> Clv </strong>${ customerActive.clv }</p>
+                        <div className="customer-clv-badge">
+                            <p><strong>Action</strong></p>
+                            <span className={`badge ${customer.retentionScore }`}>
+                                { customerActive.action}
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <div className="moments-card">
                     <div className="moments-card-header">
@@ -64,30 +87,30 @@ export const Customer = () => {
                     </div>
                     <div className="moments">
                         <div className="moment">
-                            <div className="moment-icon">
+                            <div className= { customerActive.maritalStatus !== 'Married' ? ' moment-icon moment-icon-outline' : `moment-icon` }>
                                 <img src={ iconHeart } alt="" />
                             </div>
                             <div>
                                 <h5>Marital status</h5>
-                                <small>Married</small>
+                                <small>{ customerActive.maritalStatus }</small>
                             </div>
                         </div>
                         <div className="moment">
-                            <div className="moment-icon">
+                            <div className={ customerActive.kids <= 0 ? ' moment-icon moment-icon-outline' : `moment-icon` }>
                                 <img src={ iconKids } alt="" />
                             </div>
                             <div>
                                 <h5>Kids</h5>
-                                <small>2</small>
+                                <small>{customerActive.kids}</small>
                             </div>
                         </div>
                         <div className="moment">
-                            <div className="moment-icon moment-icon-outline">
+                            <div className={ customerActive.education <= 0 ? ' moment-icon moment-icon-outline' : `moment-icon` }>
                                 <img src={ iconEducation } alt="" />
                             </div>
                             <div>
                                 <h5>Education</h5>
-                                <p>Bachelor's degree</p>
+                                <p>{customerActive.education}</p>
                             </div>
                         </div>
                         <div className="moment">
@@ -96,7 +119,7 @@ export const Customer = () => {
                             </div>
                             <div>
                                 <h5>Profession</h5>
-                                <small>Teacher</small>
+                                <small>{customerActive.profession}</small>
                             </div>
                         </div>
                         <div className="moment">
@@ -105,25 +128,25 @@ export const Customer = () => {
                             </div>
                             <div>
                                 <h5>Gender</h5>
-                                <small>F</small>
-                            </div>
-                        </div>
-                        <div className="moment">
-                            <div className="moment-icon moment-icon-outline">
-                                <img src={ iconAge } alt="" />
-                            </div>
-                            <div>
-                                <h5>Age</h5>
-                                <small>45</small>
+                                <small>{ customerActive.gender }</small>
                             </div>
                         </div>
                         <div className="moment">
                             <div className="moment-icon">
+                                <img src={ iconAge } alt="" />
+                            </div>
+                            <div>
+                                <h5>Age</h5>
+                                <small>{ customerActive.age}</small>
+                            </div>
+                        </div>
+                        <div className="moment">
+                            <div className="moment-icon moment-icon-outline">
                                 <img src={ iconBirthday } alt="" />
                             </div>
                             <div>
                                 <h5>Birth</h5>
-                                <small>10/05/1980</small>
+                                <small>{}</small>
                             </div>
                         </div>
                         <div className="moment">
@@ -132,7 +155,7 @@ export const Customer = () => {
                             </div>
                             <div>
                                 <h5>City</h5>
-                                <small>LA</small>
+                                <small>{ customerActive.city }</small>
                             </div>
                         </div>
                         <div className="moment">
@@ -141,7 +164,7 @@ export const Customer = () => {
                             </div>
                             <div>
                                 <h5>State</h5>
-                                <small>California</small>
+                                <small>{ customerActive.state}</small>
                             </div>
                         </div>
                     </div>
@@ -155,13 +178,20 @@ export const Customer = () => {
                     <div className="history-card-data">
                         <div className="history-row-card">   
                             <h5>Date</h5>
-                            <small>23/02/2020</small>
+                            <small>{dateHistory}</small>
                             <h5>Offer</h5>
-                            <small>10% discount</small>
+                            <small>{ customerActive.offer }</small>
                             <h5>Reason</h5>
-                            <small>Cancel</small>
-                            <h5>Accepted</h5>
-                            <Switch onChange={(event) => setAccepted(event.target.checked)} />
+                            <small>{ customerActive.reason }</small>
+                            <h5>Offer status</h5>                            
+                            <small>{ customerActive.offerStatus }</small>
+                            {
+                                /*                                    
+                                    <Switch
+                                        onChange={(event) => setAccepted(event.target.checked)}
+                                    />
+                                */
+                            }
                         </div>
                     </div>
 
@@ -184,7 +214,7 @@ export const Customer = () => {
                             </div>
                             <div className="product-footer">
                                 <p>Credit Line</p>
-                                <h4>$50,000.00</h4>
+                                <h4>$60,000.00</h4>
                             </div>                            
                         </div>
                         <div className="product">
@@ -227,14 +257,14 @@ export const Customer = () => {
                     </div>
                     <div className="cross-sell-content">
                         <div className="progress-container">
-                            <h5>Product 10</h5>
-                            <Progress done="70" />
+                            <h5>{ customerActive.crossSell1 }</h5>
+                            <Progress done={customerActive.crossSell1Score.toFixed()} />
 
-                            <h5>Product 7</h5>
-                            <Progress done="36" />
+                            <h5>{ customerActive.crossSell2 }</h5>
+                            <Progress done={customerActive.crossSell2Score.toFixed()} />
 
-                            <h5>Product 20</h5>
-                            <Progress done="25" />
+                            <h5>{ customerActive.crossSell3 }</h5>
+                            <Progress done={customerActive.crossSell3Score.toFixed()} />
                         </div>
                     </div>
                     
@@ -314,9 +344,9 @@ export const Customer = () => {
                         </div>
                         
                         <div className="comments">
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Comments</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <div className="form-group">
+                                <label htmlFor="exampleFormControlTextarea1">Comments</label>
+                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
                             <button type="submit" className="btn btn-primary-custom" data-dismiss="modal"><span className="ti-save"></span> Save</button>
                         
