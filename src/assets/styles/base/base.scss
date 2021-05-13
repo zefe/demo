@@ -57,24 +57,19 @@ input:active {
     border: 1px solid $blue-black;
 }
 
-/*
 ::placeholder {
-    color: $text-color;
-    opacity: 50%; 
+    color: #A9A9A9;
 }
   
 :-ms-input-placeholder { 
-   color: $text-color;
+   color: #A9A9A9;
 }
   
 ::-ms-input-placeholder { 
-   color: $text-color;
+   color: #A9A9A9;
 }
-*/
-input:placeholder-shown {
-    color: $text-color;
-    opacity: 70%; 
-}
+
+
 
 
 // Animations
