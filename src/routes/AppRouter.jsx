@@ -10,8 +10,8 @@ import { Login } from '../components/Pages/Login';
 import { SignUp } from '../components/Pages/SignUp';
 import { Loading } from '../components/Common/Loading';
 import { Layout } from '../components/Layout/Layout';
-import { Customers } from '../components/Customers/Customers';
-import { Customer } from '../components/Customers/Customer';
+import { CustomerList } from '../components/Customers/CustomerList';
+import { CustomerDetails } from '../components/Customers/CustomerDetails';
 
 
 export const AppRouter = () => {
@@ -52,14 +52,14 @@ export const AppRouter = () => {
                         <PrivateRoute 
                             exact 
                             path="/" 
-                            component={ Customers } 
+                            component={ CustomerList } 
                             isAuthenticated={ !!uid }
                         />
                         
                         <PrivateRoute 
                             exact 
                             path="/customer/:customerId" 
-                            component={ Customer } 
+                            component={ CustomerDetails } 
                             isAuthenticated={ !!uid }
                         />
                     </Layout>

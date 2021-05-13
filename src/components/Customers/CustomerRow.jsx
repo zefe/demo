@@ -6,21 +6,17 @@ export const CustomerRow = ( props ) => {
 
     return (
         <>
-            <tr key={ customer.id } onClick={() => handleRowClick(customer.id)} >
-                <td>{ customer.id }</td>
-                <td>{ customer.producName }</td>
-                <td>{ customer.productType }</td>
+            <tr key={ customer.transpaisId } onClick={() => handleRowClick(customer.transpaisId)} >
+                <td>00{ customer.transpaisId }</td>
+                <td>{customer.nombre}</td>
+                <td>{customer.correo}</td>
                 <td>
-                    <span className={`badge ${customer.retentionScore}-outline`}>
-                        { customer.retentionScore }
+                    <span >
+                        {customer.puntosDeLealtad}
                     </span>
                 </td>
-                <td>{ customer.recomendations }</td>
-                <td>
-                    <span className={`badge ${customer.retentionScore }`}>
-                        { customer.actions}
-                    </span>
-                </td>
+                <td>{ customer.telefono}</td>
+                <td>{ customer.perfil }</td>
             </tr>
             
         </>

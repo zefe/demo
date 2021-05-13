@@ -10,7 +10,7 @@ import { getCustomerList } from '../../stateManagement/actions/customerActions';
 import { CustomerRow } from './CustomerRow';
 
 
-export const Customers = () => {
+export const CustomerList = () => {
 
     const dispatch = useDispatch();
 
@@ -41,8 +41,10 @@ export const Customers = () => {
         }
 
         customerId.toLocaleLowerCase();
-        return customerList.filter( customer => customer.retentionScore.toLocaleLowerCase().includes( customerId) ||
-        customer.id.toString().includes(customerId) );
+        return customerList.filter( customer => customer.perfil.toLocaleLowerCase().includes( customerId) ||
+        customer.transpaisId.toString().includes(customerId) ||
+        customer.nombre.toString().includes(customerId) ||
+        customer.correo.toString().includes(customerId) );
     };
 
     const customerFiltered = getCustomerById( searchText.toLocaleLowerCase() );
@@ -97,13 +99,13 @@ export const Customers = () => {
                         <div className="search-customer">
                             <div className="search-container">
                                 <div className="title-customers" >
-                                    <h3>Customers</h3>
+                                    <h3>Clientes</h3>
                                 </div>
                                 <div className="search-wrapper" >
                                     <form onSubmit={ handleSearch } >
                                         <input
                                             type="text"
-                                            placeholder="Search"
+                                            placeholder="Buscar por correo, id, perfil"
                                             className="search-input"
                                             name="searchText"
                                             value={ searchText }
@@ -124,12 +126,12 @@ export const Customers = () => {
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>PRODUCT</th>
-                                        <th>TYPE OF PRODUCT</th>
-                                        <th>RETENTION SCORE</th>
-                                        <th>RECOMENDATIONS</th>
-                                        <th>ACTION</th>
+                                        <th>TRANSPAIS ID</th>
+                                        <th>NOMBRE</th>
+                                        <th>CORREO</th>
+                                        <th>PUNTOS DE LEALTAD</th>
+                                        <th>TELÉFONO</th>
+                                        <th>PERFIL</th>
                                     </tr>
                                 </thead>
                                 <tbody>

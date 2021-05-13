@@ -41,6 +41,7 @@ main {
     min-height: 100vh;
 }
 
+
 input {
     border: 1px solid #e7e6e6;
     color: $text-color;
@@ -56,18 +57,25 @@ input:active {
     border: 1px solid $blue-black;
 }
 
+/*
 ::placeholder {
     color: $text-color;
-    opacity: 50%; /* Firefox */
+    opacity: 50%; 
 }
   
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder { 
    color: $text-color;
 }
   
-::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder { 
    color: $text-color;
 }
+*/
+input:placeholder-shown {
+    color: $text-color;
+    opacity: 70%; 
+}
+
 
 // Animations
 @keyframes moveLeft {

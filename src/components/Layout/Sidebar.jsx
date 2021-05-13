@@ -40,7 +40,7 @@ export const Sidebar = () => {
                     <li>
                         <Link to="/">
                             <img src={ IconCustomers } alt="customers icon" />
-                            <span>Customers</span>
+                            <span>Clientes</span>
                         </Link>
                     </li>
                 </ul>
@@ -48,7 +48,7 @@ export const Sidebar = () => {
             <div className="sidebar-footer">
                 <Link to="/login" onClick={ handleLogout }>
                     <img src={ IconLogOut } alt="log out" />
-                    <span>Log out</span>
+                    <span>Cerrar sesión</span>
                 </Link>
             </div>   
         </div>

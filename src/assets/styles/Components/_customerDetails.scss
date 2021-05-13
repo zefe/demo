@@ -2,23 +2,186 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
     position: relative;
-    animation: moveRight 2s;
+    animation: moveUp 2s;
 }
 
 .title-customers-deatils h3 {
     font-size: 28px;
-    font-weight: 100;
+    font-weight: 200;
     padding-bottom: 1rem;
     margin-top: -10px;
 }
 
-.customer-grid {
-    display: grid;
-    grid-template-columns: 16% 83%;
-    grid-column-gap: 1%;
+.customer-container {
+    width: 100%;
+    .customer-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 5px;
+        background-color: $white-color;
+        border: 1px solid rgba(92, 92, 92, 0.2);
+        .customer-avatar, .customer-summary {
+            height: 160px;
+            word-wrap: break-word;
+        }
+        .customer-avatar {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .customer-img {
+                text-align: center;
+                width: 80px;
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+
+                }
+            }
+            strong {
+                margin-top: 5px;
+            }
+            span{
+                font-size: 14px;
+            }
+
+        }
+        .customer-summary {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                font-size: 2.5rem;
+                color: #00A877;
+                padding: 1rem;
+            }
+            .customer-info  {
+                margin: 20px;
+                h1{
+                    font-weight: 300;
+                    font-size: 24px;
+                    
+                }
+                small{
+                    font-weight: 200;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
 }
 
-.customer-card,
+.recomendations {
+    width: 100%;
+    background-color: $white-color;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(92, 92, 92, 0.2);
+    h1{
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.recommendations-wrapper {
+    display: flex;
+    justify-content: space-between;
+    .recomm-card {
+        width: 22%;
+        padding: 10px;
+        background-color: $white-color;        
+        box-shadow: 2px 2px 10px rgba(86, 108, 214, .15);
+        border-radius: 7px;
+        img {
+            margin:0;
+            padding: 0;
+        }
+        p {
+            padding: 10px 0;
+        }
+        .recomm-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+            p {
+                margin: 0;
+                padding: 0;
+                font-size: 14px;
+                font-weight: 300;                
+            }
+        }
+    }
+}
+
+
+.insights-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.insights-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.insights-data {
+    width: 50%;
+    border-radius: 5px;
+    background-color: $white-color;
+    border: 1px solid rgba(92, 92, 92, 0.2);
+    
+}
+
+.insights-routes {
+    .destination {
+        background-color: #00A877;
+        display: flex;
+        height: 50px;
+        margin: 6% 3%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px; 
+
+        p {
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            font-size: 14px;
+            color: $white-color;
+            padding: 0 15px;
+        }
+        small {
+            color: $white-color;
+            padding: 0 15px;
+            background-color: #028a63;
+        }
+    }
+}
+
+
+
+
+
+
+
+.customer-moments {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.moments-card {
+    width: 100%;
+}
+
 .moments-card,
 .history-card,
 .products-card,
@@ -30,46 +193,7 @@
     border: 1px solid rgba(92, 92, 92, 0.2);
 }
 
-.customer-card {
-    font-size: 13px;
-    text-align: center;
-    top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
-.customer-card img {
-    padding-bottom: 1rem;
-}
-
-.customer-card p {
-    padding: 0;
-    margin: 0;
-}
-
-.customer-information {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-    div {
-        display: flex;
-        justify-content: space-between;
-    }
-    .customer-clv-badge {
-        display: flex;
-        width: 100%;
-        padding-top: 20px;
-        justify-content: center;
-        align-items: center;
-        span {
-            margin-left: 5px;
-        }
-    }
-}
 
 .moments-card-header {
     display: flex;
@@ -91,10 +215,11 @@
 }
 
 .moments-card h3, .card-title h3{
-    color: $text-color;
-    margin: 1rem;
-    font-size: 1.3rem;
-    font-weight: 600;
+    
+    margin: 21px;
+    font-size: 22px;
+    font-weight: 500;
+
 }
 
 .moments {
@@ -129,7 +254,7 @@
 
 
 .moment h5, .history-row-card h5, .progress-container h5{
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 14px;
     padding: 0;
     margin-bottom: 0;
@@ -156,13 +281,26 @@
 }
 
 .history-card {
+    width: 22%;
+    word-wrap: break-word;
 }
 
 .history-card-data {
     padding-bottom: 15px;
 }
 .history-row-card {
-    padding: 0 15px;
+    padding: 0 22px;
+    span {
+        margin: 15px;
+        font-size: 12px;
+    }
+    .acepted{
+        color: #00A877;
+    }
+    .rejected {
+        color: red;
+
+    }
 }
 
 .history-row-card label {
@@ -187,18 +325,17 @@
 }
 
 .feedback-card {
-    margin-left: 20px;
-    width: 40%;
+    width: 24%;    
+    word-wrap: break-word;
 }
 
 
 .satisfaction {
     display: flex;
     justify-content: space-between;
-    padding: 20px 20px;
-
+    padding: 0 24px;
     h5 {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
@@ -216,7 +353,7 @@
 
 
 .rating-container {
-    padding: 20px 20px;
+    padding: 20px 22px;
     p {
         font-size: 14px;
     }
@@ -228,9 +365,9 @@
 }
 
 .comments {
-    padding: 20px 20px;
+    padding: 20px 22px;
     label {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
@@ -334,6 +471,12 @@
 }
 
 
+/*
+    New styles for CUSTOMER_DETAILS
+*/
+
+
+
 
 /* Responsive */
 @media only screen and (max-width: 1000px) {
@@ -358,6 +501,7 @@
     }
 
 
+
 }
 
 @media only screen and (max-width: 900px) {
@@ -377,11 +521,6 @@
         display: grid;
         grid-template-columns: repeat(3, 32%);
         justify-items: center;
-    }
-
-    .customer-card {
-        padding: 20px 20px;
-        margin-bottom: 20px;
     }
 
     .moments-card-header {

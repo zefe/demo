@@ -55,7 +55,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
 
         <div className="toggle__main">
             <div className="toggle__header">
-                <h5 className="modal-title">Edit Life Moments</h5>
+                <h5 className="modal-title">Editar Momentos de Vida</h5>
                 <button type="button" className="close"  aria-label="Close" onClick={ closeToggle }>
                     <span className="ti-close"></span>
                 </button>
@@ -66,7 +66,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
                     
                     <div className="form-row">
                         <div className="form-group col-md-6">
-                            <label htmlFor="maritalStatus">Marital status</label>
+                            <label htmlFor="maritalStatus">Estado civil</label>
                             <input 
                                 type="text"
                                 name="maritalStatus"
@@ -77,7 +77,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
                                 />
                         </div>
                         <div className="form-group col-md-6">
-                            <label htmlFor="kids">Kids</label>
+                            <label htmlFor="kids">Hijos</label>
                             <input
                                 type="text"
                                 name="kids"
@@ -91,7 +91,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
 
                     <div className="form-row">
                         <div className="form-group col-md-6">
-                            <label htmlFor="education">Education</label>
+                            <label htmlFor="education">Educación</label>
                             <input 
                                 type="text"
                                 name="education"
@@ -102,7 +102,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
                             />
                         </div>
                         <div className="form-group col-md-6">
-                            <label htmlFor="profession">Profession</label>
+                            <label htmlFor="profession">Profesión</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -117,7 +117,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
                     <div className="form-row">
                     
                         <div className="form-group col-md-4">
-                            <label htmlFor="gender">Gender</label>
+                            <label htmlFor="gender">Genero</label>
                             <select 
                                 className="form-control"
                                 id="gender"
@@ -131,7 +131,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
                             </select>
                         </div>
                         <div className="form-group col-md-3">
-                            <label htmlFor="age">Age</label>
+                            <label htmlFor="age">Edad</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -142,7 +142,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
                             />
                         </div>
                         <div className="form-group col-md-5">
-                            <label htmlFor="birthday">Birthday</label>
+                            <label htmlFor="birthday">Cumpleaños</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -157,7 +157,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
                     
                     <div className="form-row">
                         <div className="form-group col-md-6">
-                            <label htmlFor="city">City</label>
+                            <label htmlFor="city">Ciudad</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -168,7 +168,7 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
                             />
                         </div>
                         <div className="form-group col-md-6">
-                            <label htmlFor="state">State</label>
+                            <label htmlFor="state">Estado</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -181,8 +181,8 @@ export const EditMoments = ({ customer, setCustomerActive }) => {
                     </div>
 
                     <div className="toggle__footer">
-                        <button type="submit" className="btn btn-primary-custom" data-dismiss="modal"><span className="ti-save"></span> Save</button>
-                        <button type="button" className="btn btn-default" data-dismiss="modal" onClick={ closeToggle }> Cancel</button>
+                        <button type="submit" className="btn btn-primary-custom" data-dismiss="modal"><span className="ti-save"></span> Guardar</button>
+                        <button type="button" className="btn btn-default" data-dismiss="modal" onClick={ closeToggle }> Cancelar</button>
                     </div>
 
                 </form>   
