@@ -73,7 +73,7 @@ export const Customer = () => {
                         <img src={ 
                             (customer.retentionScore === 'High') && personHigh ||
                             (customer.retentionScore === 'Low') && personLow  ||
-                            (customer.retentionScore === 'Medium') && personLow  
+                            (customer.retentionScore === 'Medium') && personMedium  
                             } 
                             alt="Customer avatar" 
                         />
