@@ -5,7 +5,10 @@ import { Redirect, useParams } from 'react-router';
 
 import { uiOpenToggle } from '../../stateManagement/actions/uiActions';
 
-import person from '../../assets/images/person.png';
+import personMedium from '../../assets/images/medium.png';
+import personHigh from '../../assets/images/high.png';
+import personLow from '../../assets/images/low.png';
+
 import iconState  from '../../assets/icons/moments/state.svg';
 import iconCity  from '../../assets/icons/moments/city.svg';
 import iconBirthday  from '../../assets/icons/moments/birthday.svg';
@@ -66,7 +69,15 @@ export const Customer = () => {
         }
             <div className="customer-grid">
                 <div className="customer-card">
-                    <img src={ person } alt="Customer avatar" />
+                    <div className="avatar">
+                        <img src={ 
+                            (customer.retentionScore === 'High') && personHigh ||
+                            (customer.retentionScore === 'Low') && personLow  ||
+                            (customer.retentionScore === 'Medium') && personLow  
+                            } 
+                            alt="Customer avatar" 
+                        />
+                    </div>
                     <div className="customer-information">                
                         <p><strong> Id </strong> { customerActive.id }</p>
                         <p><strong> Clv </strong>${ customerActive.clv }</p>
